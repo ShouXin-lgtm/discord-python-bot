@@ -77,25 +77,26 @@ bot = commands.Bot(
 # Ready
 # =========================
 
+# =========================
+# Ready
+# =========================
+
 @bot.event
-
 async def on_ready():
-
-    print(f"{bot.user} 已上線")
 
     try:
 
+        bot.tree.clear_commands(guild=None)
+
         synced = await bot.tree.sync()
 
-        print(
-
-            f"同步 {len(synced)} 個指令"
-
-        )
+        print(f"同步 {len(synced)} 個指令")
 
     except Exception as e:
 
         print(e)
+
+    print(f"{bot.user} 已上線")
 
 # =========================
 # .r
